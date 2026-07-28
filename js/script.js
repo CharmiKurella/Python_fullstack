@@ -1,4 +1,4 @@
-alert("Wlcome to NRIIT Learning Management System")
+alert("welcome to NRIIT Learning Management System")
 let heading = document.getElementById("welcome")
-heading.innerHTML = "Welcome Future Software Engineers"
+heading.innerHTML = "welcome Future Software Engineers"
 console.log("Heading element:", heading)
