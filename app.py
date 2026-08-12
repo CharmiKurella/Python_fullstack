@@ -72,9 +72,9 @@ def api_request():
     user = cursor.fetchone()
     if user:
         return jsonify({"status": "error", "message": "User already exists with this email!"}), 400
-        cursor.execute("INSERT INTO users (name, email, password, dob, gender, course) VALUES (?, ?, ?, ?, ?, ?)", (data["name"], data["email"], data["password"], data["dob"], data["gender"], data["course"]))
-        conn.commit()
-        conn.close()
+    cursor.execute("INSERT INTO users (name, email, password, dob, gender, course) VALUES (?, ?, ?, ?, ?, ?)", (data["name"], data["email"], data["password"], data["dob"], data["gender"], data["course"]))
+    conn.commit()
+    conn.close()
     return jsonify({"status": "success", "message": "registration successfull"})
 
 @app.route('/api/login', methods=["POST"])
