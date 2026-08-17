@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask,render_template,jsonify,request,redirect,url_for
+from flask import Flask,render_template,jsonify,request,redirect,url_for,session
 
 
 
@@ -88,9 +88,16 @@ def api_login():
     user = cursor.fetchone()
     conn.close()
     if user and user["password"] == password:
+        session["user_email"] = user["email"]
+        session["user_name"] = user["name"]
         return jsonify({"status": "success", "message": "login successful! Welcome back."})
     else:
         return jsonify({"status": "error", "message": "Invalid email or password!"}), 401
+app.route('/logout', methods=["GET"])
+def logout():
+    session.app("user_email", None)
+    session.app("user_name", None)
+    return redirect(url_for("login"))
 
 if __name__=='__main__':
     app.run(debug=True)
