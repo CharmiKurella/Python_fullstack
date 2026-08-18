@@ -19,6 +19,7 @@
       <a href="/courses">Courses</a>
       <a href="/trainers">Trainers</a>
       {% if session.get('user_email') %}
+      <a href="/tasks">My Tasks</a>
       <a href="/logout">Logout</a>
       {% else %}
       <a href="/register">Register</a>
@@ -35,7 +36,7 @@
         track their learning journey.
       </p>
       <p>Learning never stops</p>
-      <img src="{{ url_for('static', filename='image/banner.jpg') }}" alt="LMS Banner" width="800" class="banner">
+      <img src="{{ url_for('static', filename='image/banner.png') }}" alt="LMS Banner" width="800" class="banner">
     </section>
     <section>
       <h2>Why choose NRIIT?</h2>
